@@ -6,7 +6,7 @@ format name | first byte (in binary) | first byte (in hex) | first byte (in deci
 :----------- | :---------------------- | :------------------- | :-
 positive fixint | 00xx xxxx | 0x00–0x3f | 0–63
 nil | 0100 0000 | 0x40 | 64
-collection end | 0100 0001 | 0x41 | 65
+sequence end | 0100 0001 | 0x41 | 65
 false | 0100 0010 | 0x42 | 66
 true | 0100 0011 | 0x43 | 67
 uint 8 | 0100 0100 | 0x44 | 68
@@ -50,12 +50,11 @@ This represents raw binary data. Fixbin, bin 8, 16, and 32.
 ### String
 This represents a UTF-8 string. Terminated by 0xc0.
 
-### Collections
-#### Sequence
-Sequence of any values; numbers, booleans, nil, strings, binary data, sequences, and/or associative sequences. A sequence is terminated with a collection end byte (see below).
+### Sequence
+Sequence of any values; numbers, booleans, nil, strings, binary data, sequences, and/or associative sequences. A sequence is terminated with a sequence end byte (see below).
 
-#### Associative Sequence
-An associative sequence is a series Key/value pairs. Keys and values can be any value pack type: number, boolean, nil, string, binary data, sequence, or associative sequence. An associative sequence is terminated with a collection end byte (see below).
+### Associative Sequence
+An associative sequence is a series Key/value pairs. Keys and values can be any value pack type: number, boolean, nil, string, binary data, sequence, or associative sequence. An associative sequence is terminated with a sequence end byte (see below).
 
-#### Collection End
-Marks the end of the current sequence, or associative sequence. Required for every collection. If the collection end byte occurs after an associative sequence key without a corresponding value, a nil byte is implied for the entry value.
+### Sequence End
+Marks the end of the current sequence, or associative sequence. Required. If a sequence end byte occurs after an associative sequence key without a corresponding value, a nil byte is implied for the entry value. Invalid outside of a sequence, or associative sequence.
