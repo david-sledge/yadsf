@@ -1,4 +1,4 @@
-# DataPack Specification
+# YADSF Specification
 
 Inspired by [MessagePack](https://msgpack.org).
 
