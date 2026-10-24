@@ -1,5 +1,5 @@
 # YADSF
-Yet Another Data Serialization Format is a compact serialization specification inspired by [MessagePack](https://github.com/msgpack/msgpack).
+**Y**et **A**nother **D**ata **S**erialization **F**ormat (syllables of the acronym rhyme with "fraud" and "clef") is a compact serialization specification inspired by [MessagePack](https://github.com/msgpack/msgpack).
 
 ## Why?
 
